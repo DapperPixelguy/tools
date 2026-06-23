@@ -1,2 +1,3 @@
-tool_name: 'Album cover to text'
+tool_name: 'Image to text'
+hash: '#image-to-text'
 content: 'index.html'
