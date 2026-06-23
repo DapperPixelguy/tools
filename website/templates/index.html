@@ -27,9 +27,11 @@
         <div class="tool">
             <a href="#home">Home</a>
         </div>
+        {% for tool in tools %}
         <div class="tool">
-            <a href="#image-to-text">Image to text</a>
+            <a href="{{ tool.hash }}" data-content="{{ tool.content }}">{{ tool.name }}</a>
         </div>
+        {% endfor %}
     </div>
     <div id="tool-display">
 
