@@ -42,7 +42,7 @@ header {
     .tool {
         height: 4rem;
         border-bottom: var(--border);
-        font-family: Poppins, monospace;
+        font-family: "Chelsea Market", system-ui;
 
         a {
             height: 100%;
