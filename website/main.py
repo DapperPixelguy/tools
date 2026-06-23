@@ -21,9 +21,11 @@ def get_tools():
             data = yaml.safe_load(f)
 
             name = data.get('tool_name')
+            hash = data.get('hash')
             TOOL_CONTENT = os.path.join(TOOL_DIRECTORY, data.get('content'))
 
             new_tool.name = name
+            new_tool.hash = hash
             new_tool.content = TOOL_CONTENT
         tools_list.append(new_tool)
     return tools_list
