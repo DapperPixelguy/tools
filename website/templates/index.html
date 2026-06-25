@@ -24,9 +24,6 @@
 </header>
 <div id="content">
     <div id="tools-bar">
-        <div class="tool">
-            <a href="#home">Home</a>
-        </div>
         {% for tool in tools %}
         <div class="tool">
             <a href="{{ tool.hash }}" data-content="{{ tool.content }}">{{ tool.name }}</a>
@@ -37,6 +34,7 @@
 
     </div>
 </div>
+<script src="{{ url_for('static', filename='index.js') }}"></script>
 
 </body>
 
