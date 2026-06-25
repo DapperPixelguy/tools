@@ -1,0 +1,119 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+:root {
+    --border: 1px solid #555;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    color: white;
+    font-family: Poppins, monospace;
+    font-weight: 500;
+    position: relative;
+
+    &::before {
+        z-index: 0;
+        content: '';
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(ellipse at center, #ffffff 0%, transparent 50%);
+        opacity: 0.1;
+        width: 200%;
+        height: 10rem;
+        position: absolute;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.main {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5rem;
+}
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+
+    .input-field {
+        position: relative;
+
+        input {
+        width: 15rem;
+        height: 3rem;
+
+            &:focus, &:not(:placeholder-shown) {
+                +label {
+                    color: white;
+                    left: auto;
+                    right: calc(100% + 1rem);
+                    opacity: 1;
+                }
+            }
+
+        }
+
+        label {
+            font-family: Poppins, sans-serif;
+            position: absolute;
+            left: 1rem;
+            text-align: right;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #000000aa;
+            opacity: 0.5;
+            transition: all 0.2s ease;
+            cursor: text;
+        }
+
+
+        &.required {
+            &::after {
+                content: '*';
+                left: 0;
+                top: -1.2rem;
+                position: absolute;
+                color: #ff000080;
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+#submit {
+    background: #222222;
+    border: var(--border);
+    color: #ffffff;
+    border-radius: 5px;
+    filter: drop-shadow(0 0 4px #ffffff40);
+    cursor: pointer;
+    height: 3rem;
+    font-size: 1.2rem;
+    font-family: Poppins, monospace;
+    letter-spacing: 1px;
+}
+
+.preview {
+    width: 15rem;
+    height: 15rem;
+    border: var(--border)
+}
