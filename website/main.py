@@ -19,14 +19,14 @@ def get_tools():
         new_tool = Tool()
         TOOL_DIRECTORY = os.path.join(TOOLS_DIRECTORY, tool)
         CONFIG_FILE = os.path.join(TOOL_DIRECTORY, 'config.yaml')
-        print(CONFIG_FILE)
+        print(f'Config File {CONFIG_FILE}')
 
         with open(CONFIG_FILE, 'r') as f:
             data = yaml.safe_load(f)
 
             name = data.get('tool_name')
             hash = data.get('hash')
-            TOOL_CONTENT = os.path.join(TOOL_DIRECTORY, data.get('content'))
+            TOOL_CONTENT = data.get('content')
 
             new_tool.name = name
             new_tool.hash = hash
@@ -36,7 +36,7 @@ def get_tools():
 
 @main.route('/tools/<tool_name>/<path:filename>')
 def tool_files(tool_name, filename):
-    print(os.path.join(TOOLS_DIRECTORY, tool_name, filename))
+    print(f'File path: {os.path.join(TOOLS_DIRECTORY, tool_name, filename)}')
     return send_from_directory(os.path.join(TOOLS_DIRECTORY, tool_name), filename)
 
 @main.route('/')
